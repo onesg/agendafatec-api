@@ -2,9 +2,18 @@ package br.com.projetoagendafatec.agendafatecapi.model.entity;
 
 import javax.persistence.*;
 
+import lombok.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 /* a classe se tornará uma entidade */
 @Entity
+
+/* encapsulamento */
+@Getter @Setter
+
+/* construtor */
+@NoArgsConstructor
 
 public class Contato {
 
@@ -14,11 +23,11 @@ public class Contato {
     private Integer id;
 
     /* campo nome */
-    @Column(lenght = 350, nullable = false)
+    @Column(length = 350, nullable = false)
     private String nome;
 
     /* campo e-mail */
-    @Column(lenght = 300, nullable = false)
+    @Column(length = 300, nullable = false)
     private String email;
 
     /* campo favorito */

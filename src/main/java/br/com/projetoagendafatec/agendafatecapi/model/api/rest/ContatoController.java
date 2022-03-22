@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import br.com.projetoagendafatec.agendafatecapi.model.repository.ContatoRepository;
 import br.com.projetoagendafatec.agendafatecapi.model.entity.Contato;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/contatos")
@@ -35,6 +36,16 @@ public class ContatoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id){
         repository.deleteById(id);
+    }
+
+    /* método update */
+    @PatchMapping("{id}/favorito")
+    public void favorite(@PathVariable Integer id){
+        Optional<Contato> contato = repository.findById(id);
+        contato.ifPresent( c -> {
+            boolean favorito = c.getFavorito() == Boolean.TRUE;
+            c.setFavorito(!favorito);
+        });
     }
 
 }

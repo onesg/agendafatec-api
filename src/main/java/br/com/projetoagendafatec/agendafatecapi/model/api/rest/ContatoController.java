@@ -27,6 +27,7 @@ public class ContatoController {
 
     /* método listar */
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<Contato> list(){
         return repository.findAll();
     }
@@ -45,6 +46,7 @@ public class ContatoController {
         contato.ifPresent( c -> {
             boolean favorito = c.getFavorito() == Boolean.TRUE;
             c.setFavorito(!favorito);
+            repository.save(c);
         });
     }
 

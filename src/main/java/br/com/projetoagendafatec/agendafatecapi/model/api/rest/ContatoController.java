@@ -30,12 +30,12 @@ public class ContatoController {
         return repository.save(contato);
     }
 
-    /* método listar */
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<Contato> list(){
-        return repository.findAll();
-    }
+//    /* método listar */
+//    @GetMapping
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<Contato> list(){
+//        return repository.findAll();
+//    }
 
     /* metodo delete */
     @DeleteMapping("{id}")

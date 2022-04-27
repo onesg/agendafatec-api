@@ -3,6 +3,8 @@ package br.com.projetoagendafatec.agendafatecapi.model.api.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import br.com.projetoagendafatec.agendafatecapi.model.repository.ContatoRepository;
@@ -36,6 +38,16 @@ public class ContatoController {
 //    public List<Contato> list(){
 //        return repository.findAll();
 //    }
+
+    /* método para listar uma *página de contatos */
+    public Page<Contato> list(
+            @RequestParam(value = "page", defaultValue = "0") Integer pagina,
+            @RequestParam(value = "size", defaultValue = "10") Integer tamanho){
+        Sort sort = Sort.by(Sort.Direction.ASC, "nome");
+        PageRequest pageRequest = PageRequest.of(pagina, tamanho, sort);
+        return repository.findAll(pageRequest);
+    }
+
 
     /* metodo delete */
     @DeleteMapping("{id}")

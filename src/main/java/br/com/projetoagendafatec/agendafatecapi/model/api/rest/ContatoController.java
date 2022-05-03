@@ -3,6 +3,7 @@ package br.com.projetoagendafatec.agendafatecapi.model.api.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,7 @@ import br.com.projetoagendafatec.agendafatecapi.model.entity.Contato;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
 
 @RestController

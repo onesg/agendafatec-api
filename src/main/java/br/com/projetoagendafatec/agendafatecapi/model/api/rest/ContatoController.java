@@ -41,6 +41,8 @@ public class ContatoController {
 //    }
 
     /* método para listar uma *página de contatos */
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public Page<Contato> list(
             @RequestParam(value = "page", defaultValue = "0") Integer pagina,
             @RequestParam(value = "size", defaultValue = "10") Integer tamanho){

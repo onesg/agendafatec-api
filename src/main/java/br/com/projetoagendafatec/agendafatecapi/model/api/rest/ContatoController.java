@@ -51,7 +51,6 @@ public class ContatoController {
         return repository.findAll(pageRequest);
     }
 
-
     /* metodo delete */
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

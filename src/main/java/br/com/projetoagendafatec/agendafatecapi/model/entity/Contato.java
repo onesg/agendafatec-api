@@ -30,6 +30,10 @@ public class Contato {
     @Column(length = 300, nullable = false)
     private String email;
 
+    /* campo telefone */
+    @Column(length = 15, nullable = false)
+    private String telefone;
+
     /* campo favorito */
     @Column
     private Boolean favorito;

@@ -31,7 +31,7 @@ public class Contato {
     private String email;
 
     /* campo telefone */
-    @Column(length = 15, nullable = false)
+    @Column(length = 15, nullable = true)
     private String telefone;
 
     /* campo favorito */
